@@ -215,8 +215,7 @@ bitsadmin.exe /transfer "VBS" /priority foreground  "https://raw.githubuserconte
 bitsadmin.exe /transfer "BAT" /priority foreground  "https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/altyazi.bat" "C:\Program Files\katates-dpaltyazi\altyazi.bat"
 bitsadmin.exe /transfer "EXE" /priority foreground  %taskyol% "C:\Program Files\katates-dpaltyazi\hstart.exe"
 bitsadmin.exe /transfer "CURL_indir" /priority foreground %curl% "%Temp%\curlsetup.msi"
-start "%Temp%\curlsetup.msi"
-
+msiexec.exe /q  /i "%Temp%\curlsetup.msi"
 
 goto son
 
@@ -227,6 +226,7 @@ echo.
 echo ISLEM TAMAMLANDI
 echo.
 pause
+
 
 
 :exit
