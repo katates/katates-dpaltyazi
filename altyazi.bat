@@ -43,7 +43,7 @@ echo %TRIMMEDNAME%
    SET _result=%TRIMMEDNAME:*/s=% 
 echo %_result%
 
-cscript //nologo "C:\Windows\addins\alt.vbs" 
+cscript //nologo "C:\Progra~1\katates-dpaltyazi\alt.vbs" 
 
 if not errorlevel 1 (
 start "" "http://divxplanet.com/s%_result%"
