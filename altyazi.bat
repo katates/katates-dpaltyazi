@@ -16,7 +16,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 set seksi=%~n1
 SET _no_spaces=%seksi: =%
 
-set malok="curl http://katates.eu5.org/?v=%_no_spaces%" 
+set malok="C:\Program Files\katates-dpaltyazi\curl.exe http://katates.eu5.org/?v=%_no_spaces%" 
 
 for /F "tokens=*" %%B in ('%malok%') do (
 set token=%%B
