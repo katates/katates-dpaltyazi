@@ -169,11 +169,12 @@ DEL "%Temp%\~import.reg"
 
 
 DEL /Q "C:\Program Files\katates-dpaltyazi\hstart.exe"
-DEL /Q "C:\Program Files\katates-dpaltyazi\curl.exe"
 DEL /Q "C:\Program Files\katates-dpaltyazi\altyazi.bat"
 DEL /Q "C:\Program Files\katates-dpaltyazi\alt.vbs"
 DEL /Q "C:\Program Files\katates-dpaltyazi\divx2.ico"
 RD /S /Q "C:\Program Files\katates-dpaltyazi\"
+
+echo y | wmic product where name="cURL" call uninstall
 
 goto son
 
@@ -182,8 +183,10 @@ goto son
 :BASLA
 if defined ProgramFiles(x86) (
 set taskyol="https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/hstart64.exe"
+set curl="http://www.confusedbycode.com/curl/curl-7.37.0-win64.msi"
 ) else (
 set taskyol="https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/hstart.exe
+set curl="http://www.confusedbycode.com/curl/curl-7.37.0-win32.msi"
 )
 
 If exist "%Temp%\~import.reg" (
@@ -211,7 +214,9 @@ bitsadmin.exe /transfer "Icon" /priority foreground  "https://raw.githubusercont
 bitsadmin.exe /transfer "VBS" /priority foreground  "https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/alt.vbs" "C:\Program Files\katates-dpaltyazi\alt.vbs"
 bitsadmin.exe /transfer "BAT" /priority foreground  "https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/altyazi.bat" "C:\Program Files\katates-dpaltyazi\altyazi.bat"
 bitsadmin.exe /transfer "EXE" /priority foreground  %taskyol% "C:\Program Files\katates-dpaltyazi\hstart.exe"
-bitsadmin.exe /transfer "EXE2" /priority foreground  "https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/curl.exe" "C:\Program Files\katates-dpaltyazi\curl.exe"
+bitsadmin.exe /transfer "Filebot_indir" /priority foreground %curl% "%Temp%\curlsetup.exe"
+start %Temp%\curlsetup.exe
+
 
 goto son
 
