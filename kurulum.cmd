@@ -214,8 +214,8 @@ bitsadmin.exe /transfer "Icon" /priority foreground  "https://raw.githubusercont
 bitsadmin.exe /transfer "VBS" /priority foreground  "https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/alt.vbs" "C:\Program Files\katates-dpaltyazi\alt.vbs"
 bitsadmin.exe /transfer "BAT" /priority foreground  "https://raw.githubusercontent.com/katates/katates-dpaltyazi/master/altyazi.bat" "C:\Program Files\katates-dpaltyazi\altyazi.bat"
 bitsadmin.exe /transfer "EXE" /priority foreground  %taskyol% "C:\Program Files\katates-dpaltyazi\hstart.exe"
-bitsadmin.exe /transfer "CURL_indir" /priority foreground %curl% "%Temp%\curlsetup.exe"
-start "%Temp%\curlsetup.exe"
+bitsadmin.exe /transfer "CURL_indir" /priority foreground %curl% "%Temp%\curlsetup.msi"
+start "%Temp%\curlsetup.msi"
 
 
 goto son
